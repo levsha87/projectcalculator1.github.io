@@ -27,7 +27,7 @@ for(var i = 0; i < operations.length; i++) {
 for(var i = 0; i < clearBtns.length; i++) {
     var clearBtn = clearBtns[i];
         clearBtn.addEventListener("click", function(e){
-        clear(e.srcElement.id);
+        clear(e.target.textContent);
         });
     };
 
