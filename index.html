@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>calculator1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+      <a href="https://youtu.be/VHGaBc9OcXU" class="main-logo" target="_blank" class="main-logo"></a> 
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="calc">
+                <div class="calc-display">
+                    <input disabled type="text" id="display" value="0" name="" placeholder="000000000000000000" class="calc-display-input">
+                </div>
+                <div class="calc-buttons">
+                    <table class="calc-table">
+                        <tr class="calc-buttons-row">
+                            <td>
+                            <button type="button" class="clear-btn btn btn-hover-red" id="ce">ce</button>
+                            </td>
+                            <td>
+                                <button type="button" class="clear-btn btn btn-hover-red" id="c">c</button>
+                            </td>
+                            <td>
+                            <button type="button" class="operator btn btn-hover-blue">/</button>
+                            </td>
+                            <td>
+                            <button type="button" class=" operator btn btn-hover-blue">*</button>
+                            </td>
+                        </tr>
+                        <tr class="calc-buttons-row">
+                            <td>
+                            <button type="button" class="number btn">7</button>
+                            </td>
+                            <td>
+                            <button type="button" class="number btn">8</button>
+                            </td>
+                            <td>
+                            <button type="button" class="number btn">9</button>
+                            </td>
+                            <td>
+                            <button type="button" class="operator btn btn-hover-blue">-</button>
+                            </td>
+                        </tr>
+                        <tr class="calc-buttons-row">
+                            <td>
+                            <button type="button" class="number btn">4</button>
+                            </td>
+                            <td>
+                            <button type="button" class="number btn">5</button>
+                            </td>
+                            <td>
+                            <button type="button" class="number btn">6</button>
+                            </td>
+                            <td>
+                            <button type="button" class="operator btn btn-hover-blue">+</button>
+                            </td>
+                        </tr>
+                        <tr class="calc-buttons-row">
+                            <td>
+                            <button type="button" class="number btn">1</button>
+                            </td>
+                            <td>
+                            <button type="button" class="number btn">2</button>
+                            </td>
+                            <td>
+                            <button type="button" class="number btn">3</button>
+                            </td>
+                            <td rowspan="2">
+                            <button type="button" class="operator btn btn-equal btn-hover-blue" id="result">=</button>
+                            </td>
+                        </tr>
+                            <tr class="calc-buttons-row">
+                            <td colspan="2">
+                            <button type="button" class="number btn btn-long">0</button>
+                            </td>
+                            <td>
+                            <button type="button" class="btn  btn-hover-blue" id="decimal">.</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js">         
+    </script>
+</body>
+</html>
