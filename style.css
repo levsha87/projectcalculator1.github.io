@@ -75,12 +75,12 @@ header {
     color: #f2f2f2;
 }
 
-.btn-hover-blue:hover {
+.btn-hover-orange:hover {
     background-color: #FF6A00;
     color: #f2f2f2;
 }
 
-.number:hover {
+.btn-hover-green:hover {
     background-color: green;
     color: #f2f2f2;
 }
