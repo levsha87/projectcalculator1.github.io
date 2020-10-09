@@ -1,4 +1,4 @@
-var numbers = document.querySelectorAll(".number"),
+let numbers = document.querySelectorAll(".number"),
     operations = document.querySelectorAll(".operator"),
     clearBtns = document.querySelectorAll(".clear-btn"),
     decimalBtn = document.getElementById("decimal"),
@@ -11,21 +11,21 @@ var numbers = document.querySelectorAll(".number"),
 
 
 for(let i = 0; i < numbers.length; i++) {
-    var number = numbers[i];
+    let number = numbers[i];
     number.addEventListener("click", function(e){
         numberPress(e.target.textContent);
     });
 };
 
 for(let i = 0; i < operations.length; i++) {
-    var operationBtn = operations[i];
+    let operationBtn = operations[i];
         operationBtn.addEventListener("click", function(e){
             operationPress(e.target.textContent);
         });
     };
 
 for(let i = 0; i < clearBtns.length; i++) {
-    var clearBtn = clearBtns[i];
+    let clearBtn = clearBtns[i];
         clearBtn.addEventListener("click", function(e){
         clear(e.target.textContent);
         });
@@ -75,7 +75,7 @@ function operationPress(op) {
       }
 
     function decimal(argument) {
-        var localDecimalMemory = display.value;
+        let localDecimalMemory = display.value;
         
         if(MemoryNewNumber) {
             localDecimalMemory = "0.";
