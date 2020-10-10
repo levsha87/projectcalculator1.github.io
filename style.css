@@ -116,7 +116,6 @@ header {
     border-radius: 6px;
     cursor: pointer;
     transition: 0.1s all;
-   
 }
 
 .btn-hover-red:hover {
@@ -150,11 +149,8 @@ header {
 
 input, button {
     border: 1px grey solid;
-    border-radius: 4px; 
-       
+    border-radius: 4px;  
 }
-
-
 
 @media screen and (max-width: 768px) {
     .container {
@@ -181,11 +177,9 @@ input, button {
 }
 @media screen and (max-width: 400px) {
     .container {
-       
         width: 65%;
-        height: 90%;
-        
-        
+        height: 100%;
+        padding: 10px;
     }
     .calc-display {
         width: 62,5%;
@@ -194,7 +188,6 @@ input, button {
     .calc-display-input{
         width: 94%;
         height: 80%;
-        
     }
     
     .btn {
