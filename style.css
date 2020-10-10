@@ -194,6 +194,8 @@ input, button {
         width : 80%;
         height: 80%;
         font-size: 14px;
+        padding-right: 2px;
+        padding-left: 2px;
     }
     .btn-long {
         width: 90%;
