@@ -172,25 +172,35 @@ input, button {
     
     .btn {
         width : 96%;
+        font-size: 20px;
     }
     .btn-long {
         width: 98%;
+        font-size: 18px;
     }
 }
 @media screen and (max-width: 400px) {
     .container {
-        width: 260px;
-        height: 360px;
+       
+        width: 65%;
+        height: 90%;
+        
         
     }
-    .calc-display-input {
-        width: 250px;
+    .calc-display {
+        width: 62,5%;
+        height: 80%;
+    }
+    .calc-display-input{
+        width: 94%;
+        height: 80%;
         
     }
+    
     .btn {
         width : 80%;
         height: 80%;
-        
+        font-size: 14px;
     }
     .btn-long {
         width: 90%;
@@ -198,4 +208,8 @@ input, button {
     .btn-equal {
         height: 90%;
     }
+    input[placeholder]          {font-size: 22px;}
+    input::-moz-placeholder     {font-size: 22px;} 
+    input:-moz-placeholder      {font-size: 22px;} 
+    input:-ms-input-placeholder {font-size: 22px;}  
 }
