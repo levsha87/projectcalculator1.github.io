@@ -46,6 +46,7 @@ function numberPress(number) {
             display.value += number;
         };
     };
+    console.log(typeof number);
 };
 
 function operationPress(op) {
@@ -74,10 +75,13 @@ function operationPress(op) {
             display.value = MemoryCurrentNumber;
             MemoryPendingOperation = op;
         }
-        if(MemoryCurrentNumber===Infinity ||isNaN(MemoryCurrentNumber)){
+        /*if(MemoryCurrentNumber===Infinity ||isNaN(MemoryCurrentNumber)){
                 display.value = 'Error: divide by zero';
-            }; 
-        };
+            }; */
+        if(MemoryPendingOperation === '/'&& MemoryCurrentNumber === 0){
+            display.value = 'Error: divide by zero';
+        }
+  };
     
     function decimal(argument) {
         let localDecimalMemory = display.value;
