@@ -8,8 +8,6 @@ let numbers = document.querySelectorAll(".number"),
     MemoryNewNumber = false,
     MemoryPendingOperation = "";
 
-
-
 for(let i = 0; i < numbers.length; i++) {
     let number = numbers[i];
     number.addEventListener("click", function(e){
@@ -21,15 +19,15 @@ for(let i = 0; i < operations.length; i++) {
     let operationBtn = operations[i];
         operationBtn.addEventListener("click", function(e){
             operationPress(e.target.textContent);
-        });
-    };
+    });
+};
 
 for(let i = 0; i < clearBtns.length; i++) {
     let clearBtn = clearBtns[i];
         clearBtn.addEventListener("click", function(e){
         clear(e.target.textContent);
-        });
-    };
+    });
+};
 
 decimalBtn.addEventListener("click", decimal);
 
@@ -37,18 +35,18 @@ result.addEventListener("click", function(e){
     console.log("Клик по result")
 });
 
-    function numberPress(number) {
-        if(MemoryNewNumber) {
+function numberPress(number) {
+    if(MemoryNewNumber) {
+        display.value = number;
+        MemoryNewNumber = false;
+    } else {
+        if(display.value === "0") {
             display.value = number;
-            MemoryNewNumber = false;
         } else {
-            if(display.value === "0") {
-                display.value = number;
-            } else {
-                display.value += number;
-            };
+            display.value += number;
         };
     };
+};
 
 function operationPress(op) {
         localOperationMemory = display.value;
@@ -57,23 +55,30 @@ function operationPress(op) {
             display.value = MemoryCurrentNumber;
         } else {
             MemoryNewNumber = true;
-            if (MemoryPendingOperation === "+") {
-                MemoryCurrentNumber += +localOperationMemory;  
-            } else if (MemoryPendingOperation === "-") {
-                MemoryCurrentNumber -= +localOperationMemory;  
-            } else if (MemoryPendingOperation === "*") {
-                MemoryCurrentNumber *= +localOperationMemory;  
-            } else if (MemoryPendingOperation === "/") {
-                MemoryCurrentNumber /= +localOperationMemory;  
-            } else {
-                MemoryCurrentNumber = +localOperationMemory;  
-            }
+            switch(MemoryPendingOperation) {
+                case '+': 
+                MemoryCurrentNumber += +localOperationMemory;
+                break;
+                case '-': 
+                MemoryCurrentNumber -= +localOperationMemory;
+                break;
+                case '*': 
+                MemoryCurrentNumber *= +localOperationMemory;
+                break;
+                case '/': 
+                MemoryCurrentNumber /= +localOperationMemory;
+                break;
+                default: 
+                MemoryCurrentNumber = +localOperationMemory;
+                };       
             display.value = MemoryCurrentNumber;
             MemoryPendingOperation = op;
+        }
+        if(MemoryCurrentNumber===Infinity ||isNaN(MemoryCurrentNumber)){
+                display.value = 'Error: divide by zero';
+            }; 
         };
-        
-      }
-
+    
     function decimal(argument) {
         let localDecimalMemory = display.value;
         
