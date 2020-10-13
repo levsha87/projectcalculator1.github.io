@@ -8,31 +8,10 @@ let numbers = document.querySelectorAll(".number"),
     MemoryNewNumber = false,
     MemoryPendingOperation = "";
 
-/*for(let i = 0; i < numbers.length; i++) {
-    let number = numbers[i];
-    number.addEventListener("click", function(e){
-        numberPress(e.target.textContent);
-    });
-};*/
-
-/*for(let i = 0; i < operations.length; i++) {
-    let operationBtn = operations[i];
-        operationBtn.addEventListener("click", function(e){
-            operationPress(e.target.textContent);
-    });
-};*/
-
-/*for(let i = 0; i < clearBtns.length; i++) {
-    let clearBtn = clearBtns[i];
-        clearBtn.addEventListener("click", function(e){
-        clear(e.target.textContent);
-    });
-};*/
-
 for(let i = 0; i < numbers.length; i++) {
     let number = numbers[i];
-    number.onclick = function(e){
-        numberPress(e.target.textContent);
+        number.onclick = function(e){
+            numberPress(e.target.textContent);
     };
 };
 
@@ -47,15 +26,11 @@ for(let i = 0; i < operations.length; i++) {
 for(let i = 0; i < clearBtns.length; i++) {
     let clearBtn = clearBtns[i];
         clearBtn.onclick = function(e){
-        clear(e.target.textContent);
+            clear(e.target.textContent);
     };
 };
 
 decimalBtn.onclick = decimal;
-
-result.onclick = function(e){
-    console.log("Клик по result")
-};
 
 function numberPress(number) {
     if(MemoryNewNumber) {
