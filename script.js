@@ -5,23 +5,27 @@ let decimalBtn = document.getElementById("decimal"),
     MemoryPendingOperation = "";
 
 document.getElementById("container").addEventListener("click", function(e) {
+
     if(e.target && e.target.classList[0] === "number") {        
         numberPress(e.target.textContent);
     }
+
     if(e.target && e.target.classList[0] === "operator") {        
         operationPress(e.target.textContent);
-        console.log(MemoryPendingOperation +"new");
     }
+
     if(e.target && e.target.classList[0] === "clear-btn") {        
         clear(e.target.textContent);
     }
+
     if(e.target && e.target.classList[0] === "dot"){
         decimal(e.target.textContent);
     }
+
 });
 
-
 function numberPress(number) {
+
     if(MemoryNewNumber) {
         display.value = number;
         MemoryNewNumber = false;
@@ -31,7 +35,9 @@ function numberPress(number) {
         } else {
             display.value += number;
         };
+
     };
+
 };
 
 function operationPress(op) {
@@ -60,9 +66,11 @@ function operationPress(op) {
             display.value = MemoryCurrentNumber;
             MemoryPendingOperation = op;
         }
+
         /*if(MemoryCurrentNumber===Infinity ||isNaN(MemoryCurrentNumber)){
                 display.value = 'Error: divide by zero';
             }; */
+
         if(MemoryPendingOperation === '/'&& MemoryCurrentNumber === 0){
             display.value = 'Error: divide by zero';
         }
