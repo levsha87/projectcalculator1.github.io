@@ -1,36 +1,25 @@
-let numbers = document.querySelectorAll(".number"),
-    operations = document.querySelectorAll(".operator"),
-    clearBtns = document.querySelectorAll(".clear-btn"),
-    decimalBtn = document.getElementById("decimal"),
-    result = document.getElementById("result"),
+let decimalBtn = document.getElementById("decimal"),
     display = document.getElementById("display"),
     MemoryCurrentNumber = 0,
     MemoryNewNumber = false,
     MemoryPendingOperation = "";
 
-for(let i = 0; i < numbers.length; i++) {
-    let number = numbers[i];
-        number.onclick = function(e){
-            numberPress(e.target.textContent);
-    };
-};
+document.getElementById("container").addEventListener("click", function(e) {
+    if(e.target && e.target.classList[0] === "number") {        
+        numberPress(e.target.textContent);
+    }
+    if(e.target && e.target.classList[0] === "operator") {        
+        operationPress(e.target.textContent);
+        console.log(MemoryPendingOperation +"new");
+    }
+    if(e.target && e.target.classList[0] === "clear-btn") {        
+        clear(e.target.textContent);
+    }
+    if(e.target && e.target.classList[0] === "dot"){
+        decimal(e.target.textContent);
+    }
+});
 
-for(let i = 0; i < operations.length; i++) {
-    let operationBtn = operations[i];
-        operationBtn.onclick = function(e){
-            operationPress(e.target.textContent);
-            console.log(MemoryPendingOperation);
-    };   
-};
-
-for(let i = 0; i < clearBtns.length; i++) {
-    let clearBtn = clearBtns[i];
-        clearBtn.onclick = function(e){
-            clear(e.target.textContent);
-    };
-};
-
-decimalBtn.onclick = decimal;
 
 function numberPress(number) {
     if(MemoryNewNumber) {
@@ -43,7 +32,6 @@ function numberPress(number) {
             display.value += number;
         };
     };
-    console.log(typeof number);
 };
 
 function operationPress(op) {
@@ -106,4 +94,4 @@ function operationPress(op) {
             MemoryPendingOperation = "";
         }
     };
-
+    
