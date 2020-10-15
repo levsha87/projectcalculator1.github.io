@@ -5,20 +5,17 @@ let decimalBtn = document.getElementById("decimal"),
     MemoryPendingOperation = "";
 
 document.getElementById("container").addEventListener("click", function(e) {
-
-    if(e.target && e.target.classList[0] === "number") {        
+    switch(e.target.classList[0]){
+        case "number": 
         numberPress(e.target.textContent);
-    }
-
-    if(e.target && e.target.classList[0] === "operator") {        
+        break;
+        case "operator": 
         operationPress(e.target.textContent);
-    }
-
-    if(e.target && e.target.classList[0] === "clear-btn") {        
+        break;
+        case "clear-btn": 
         clear(e.target.textContent);
-    }
-
-    if(e.target && e.target.classList[0] === "dot"){
+        break;
+        case  "dot":
         decimal(e.target.textContent);
     }
 
@@ -41,7 +38,7 @@ function numberPress(number) {
 };
 
 function operationPress(op) {
-        localOperationMemory = display.value;
+       let localOperationMemory = display.value;       
         
         if(MemoryNewNumber && MemoryPendingOperation !== "=") {
             display.value = MemoryCurrentNumber;
@@ -51,31 +48,33 @@ function operationPress(op) {
                 case '+': 
                 MemoryCurrentNumber += +localOperationMemory;
                 break;
+
                 case '-': 
                 MemoryCurrentNumber -= +localOperationMemory;
                 break;
+
                 case '*': 
                 MemoryCurrentNumber *= +localOperationMemory;
                 break;
+
                 case '/': 
                 MemoryCurrentNumber /= +localOperationMemory;
+                if(MemoryPendingOperation === "/" && localOperationMemory === "0"){
+                    MemoryCurrentNumber = "Error divided by zero";
+                }
                 break;
+                
                 default:
                 MemoryCurrentNumber = +localOperationMemory;
-                };       
+                };  
+                
             display.value = MemoryCurrentNumber;
             MemoryPendingOperation = op;
-        }
-
-        /*if(MemoryCurrentNumber===Infinity ||isNaN(MemoryCurrentNumber)){
-                display.value = 'Error: divide by zero';
-            }; */
-
-        if(MemoryPendingOperation === '/'&& MemoryCurrentNumber === 0){
-            display.value = 'Error: divide by zero';
-        }
+            
+            }
   };
-    
+  
+
     function decimal(argument) {
         let localDecimalMemory = display.value;
         
